@@ -1,0 +1,45 @@
+<div id="commentList">
+    <div class="c-comment">
+        <div class="c-comment__list">
+            {{#comments}}
+            <div class="c-comment__item c-comment__item--parent" data-id="{{id}}">
+                <div class="c-comment__logo">
+                    <img src="{{author.avatar}}" alt="{{author.name}}">
+                </div>
+                <div class="c-comment__name">{{author.name}}</div>
+                <time class="c-comment__time"><i class="icon-clock"></i><strong>{{date}}</strong> at <strong>{{time}}</strong></time>
+                <p class="c-comment__description">{{content}}</p>
+                <div class="c-comment__setting">
+                    {{#edit}}
+                    <span class="link-edit--js" data-setting="1"><i class="icon-edit"></i>Edit</span>
+                    <span class="link-delete--js" data-setting="2"><i class="icon-cancel"></i>Delete</span>
+                    {{/edit}}
+                    <span class="link-reply--js" data-setting="3"><i class="icon-forward--left"></i>Reply</span>
+                </div>
+                <div class="c-comment__reply">
+                    <div class="c-comment c-comment--mini">
+                        <div class="c-comment__list">
+                            {{#children}}
+                            <div class="c-comment__item" data-id="{{id}}">
+                                <div class="c-comment__logo">
+                                    <img src="{{author.avatar}}" alt="{{author.name}}">
+                                </div>
+                                <div class="c-comment__name">{{author.name}}</div>
+                                <div class="c-comment__name c-comment__name--reply"><i class="icon-forward"></i>{{../author.name}}</div>
+                                <time class="c-comment__time"><i class="icon-clock"></i><strong>{{date}}</strong> at <strong>{{time}}</strong></time>
+                                <p class="c-comment__description">{{content}}</p>
+                            </div>
+                            {{/children}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/comments}}
+        </div>
+        <div class="c-comment__more">
+            <span class="link-more--js">load more comments</span>
+        </div>
+    </div>
+</div>
+
+
